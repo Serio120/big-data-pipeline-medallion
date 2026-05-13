@@ -6,9 +6,15 @@
 [0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	DataGenerator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DataGeneratorWithQualityIssues.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DataGeneratorWithQualityIssues$$typecreator10$2.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	DataGenerator$$typecreator10$2.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	AdvancedGenerator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DataGeneratorWithQualityIssues$$typecreator10$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DataGeneratorWithQualityIssues$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DataGeneratorWithQualityIssues$$typecreator10$3.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	DataGenerator$$typecreator10$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DataGeneratorWithQualityIssues$$typecreator20$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	AdvancedGenerator$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	DataGenerator.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	DataGenerator$$typecreator10$1.class[0m

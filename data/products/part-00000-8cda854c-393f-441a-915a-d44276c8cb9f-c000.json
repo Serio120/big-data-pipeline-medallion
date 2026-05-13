@@ -1,0 +1,125 @@
+{"product_id":"1","name":"Monitor 4K","category":"Accesorios","cost":"446","price":"579","supplier_id":"2","created_date":"2021-08-15"}
+{"product_id":"2","name":"Mouse","category":"Electrónica","cost":"487","price":"633","supplier_id":"3","created_date":"2023-08-21"}
+{"product_id":"3","name":"Teclado","cost":"92","price":"119","supplier_id":"4","created_date":"2020-06-24"}
+{"product_id":"4","name":"Cable USB-C","category":"Almacenamiento","cost":"130","price":"169","supplier_id":"5","created_date":"2021-05-24"}
+{"product_id":"5","name":"Cargador","category":"Redes","cost":"401","price":"521","supplier_id":"6","created_date":"2021-05-06"}
+{"product_id":"6","name":"Cable USB-C","category":"Periféricos","cost":"449","price":"583","supplier_id":"7","created_date":"2021-10-08"}
+{"product_id":"7","name":"Cable USB-C","category":"Periféricos","cost":"37","price":"48","supplier_id":"8","created_date":"10/06/2020"}
+{"product_id":"8","name":"Monitor 4K","category":"Electrónica","cost":"372","price":"483","supplier_id":"9","created_date":"21/07/2020"}
+{"product_id":"9","name":"Monitor 4K","category":"Almacenamiento","cost":"360","price":"468","supplier_id":"10","created_date":"18/08/2020"}
+{"product_id":"10","name":"Teclado","category":"Almacenamiento","cost":"116","price":"150","supplier_id":"11","created_date":"09/07/2021"}
+{"product_id":"11","name":"Cargador","category":"Almacenamiento","cost":"80","price":"104","supplier_id":"12","created_date":"11/10/2023"}
+{"product_id":"12","name":"Dock","category":"Periféricos","cost":"319","price":"414","supplier_id":"13","created_date":"28/04/2021"}
+{"product_id":"13","name":"   Dock   ","category":"Periféricos","cost":"345","price":"448","supplier_id":"14","created_date":"2020-07-02"}
+{"product_id":"14","name":"Webcam HD","category":"Periféricos","cost":"275","price":"357","supplier_id":"15","created_date":"2021-09-07"}
+{"product_id":"15","name":"Webcam HD","cost":"289","price":"375","supplier_id":"16","created_date":"2021-12-14"}
+{"product_id":"16","name":"SSD 1TB","cost":"322","price":"418","supplier_id":"17","created_date":"05/11/2021"}
+{"product_id":"17","name":"Cargador","category":"Almacenamiento","cost":"196","price":"254","supplier_id":"18","created_date":"2022-07-07"}
+{"product_id":"18","name":"Laptop Pro","category":"Redes","cost":"225","price":"292","supplier_id":"19","created_date":"2021-07-22"}
+{"product_id":"19","name":"   Monitor 4K   ","category":"Almacenamiento","cost":"42","price":"54","supplier_id":"20","created_date":"24/07/2020"}
+{"product_id":"20","name":"Laptop Pro","category":"Periféricos","cost":"257","price":"334","supplier_id":"21","created_date":"27/08/2022"}
+{"product_id":"21","name":"Auriculares","category":"Redes","cost":"370","price":"481","supplier_id":"22","created_date":"29/12/2023"}
+{"product_id":"22","name":"Cargador","category":"Electrónica","cost":"467","price":"607","supplier_id":"23","created_date":"2022-02-17"}
+{"product_id":"23","name":"Dock","category":"Periféricos","cost":"470","price":"611","supplier_id":"24","created_date":"13/03/2022"}
+{"product_id":"24","name":"Teclado","category":"Electrónica","cost":"13","price":"16","supplier_id":"25","created_date":"25/02/2022"}
+{"product_id":"25","name":"Cable USB-C","cost":"72","price":"93","supplier_id":"26","created_date":"18/07/2023"}
+{"product_id":"26","name":"Cable USB-C","category":"Periféricos","cost":"89","price":"115","supplier_id":"27","created_date":"2023-05-27"}
+{"product_id":"27","name":"Dock","category":"Almacenamiento","cost":"420","price":"546","supplier_id":"28","created_date":"2020-02-25"}
+{"product_id":"28","name":"Teclado","category":"Accesorios","cost":"22","price":"28","supplier_id":"29","created_date":"25/10/2022"}
+{"product_id":"29","name":"Auriculares","cost":"335","price":"435","supplier_id":"30","created_date":"07/06/2023"}
+{"product_id":"30","name":"Cargador","category":"Accesorios","cost":"319","price":"414","supplier_id":"31","created_date":"20/12/2021"}
+{"product_id":"31","name":"Cargador","category":"Redes","cost":"67","price":"87","supplier_id":"32","created_date":"2021-03-18"}
+{"product_id":"32","name":"Cargador","cost":"47","price":"61","supplier_id":"33","created_date":"05/02/2020"}
+{"product_id":"33","name":"Cargador","cost":"468","price":"608","supplier_id":"34","created_date":"05/08/2021"}
+{"product_id":"34","name":"Cargador","category":"Periféricos","cost":"76","price":"98","supplier_id":"35","created_date":"22/09/2023"}
+{"product_id":"35","name":"   Cable USB-C   ","category":"Almacenamiento","cost":"302","price":"392","supplier_id":"36","created_date":"26/05/2023"}
+{"product_id":"36","name":"   Webcam HD   ","category":"Accesorios","cost":"418","price":"543","supplier_id":"37","created_date":"2021-01-18"}
+{"product_id":"37","name":"Cable USB-C","cost":"476","price":"618","supplier_id":"38","created_date":"25/08/2021"}
+{"product_id":"38","name":"Cargador","category":"Redes","cost":"395","price":"513","supplier_id":"39","created_date":"2020-06-19"}
+{"product_id":"39","name":"Monitor 4K","cost":"369","price":"479","supplier_id":"40","created_date":"30/09/2022"}
+{"product_id":"40","name":"Auriculares","cost":"183","price":"237","supplier_id":"41","created_date":"12/02/2020"}
+{"product_id":"41","name":"   Teclado   ","cost":"55","price":"71","supplier_id":"42","created_date":"2022-03-08"}
+{"product_id":"42","name":"   Cable USB-C   ","category":"Accesorios","cost":"14","price":"18","supplier_id":"43","created_date":"29/06/2023"}
+{"product_id":"43","name":"Laptop Pro","category":"Periféricos","cost":"406","price":"527","supplier_id":"44","created_date":"18/06/2020"}
+{"product_id":"44","name":"Laptop Pro","category":"Periféricos","cost":"118","price":"153","supplier_id":"45","created_date":"20/04/2023"}
+{"product_id":"45","name":"Cable USB-C","category":"Almacenamiento","cost":"189","price":"245","supplier_id":"46","created_date":"18/12/2021"}
+{"product_id":"46","name":"Laptop Pro","category":"Electrónica","cost":"416","price":"540","supplier_id":"47","created_date":"2022-05-09"}
+{"product_id":"47","name":"Auriculares","category":"Redes","cost":"58","price":"75","supplier_id":"48","created_date":"2022-09-17"}
+{"product_id":"48","name":"Teclado","category":"Accesorios","cost":"300","price":"390","supplier_id":"49","created_date":"2022-08-14"}
+{"product_id":"49","name":"Cable USB-C","category":"Accesorios","cost":"199","price":"258","supplier_id":"50","created_date":"15/01/2020"}
+{"product_id":"50","name":"Monitor 4K","category":"Almacenamiento","cost":"122","price":"158","supplier_id":"1","created_date":"27/07/2020"}
+{"product_id":"51","name":"Mouse","category":"Accesorios","cost":"400","price":"520","supplier_id":"2","created_date":"2022-11-30"}
+{"product_id":"52","name":"Webcam HD","cost":"198","price":"257","supplier_id":"3","created_date":"30/07/2020"}
+{"product_id":"53","name":"Auriculares","category":"Electrónica","cost":"192","price":"249","supplier_id":"4","created_date":"26/07/2021"}
+{"product_id":"54","name":"Laptop Pro","cost":"135","price":"175","supplier_id":"5","created_date":"27/05/2021"}
+{"product_id":"55","name":"Cargador","category":"Periféricos","cost":"396","price":"514","supplier_id":"6","created_date":"23/06/2021"}
+{"product_id":"56","name":"Mouse","category":"Almacenamiento","cost":"495","price":"643","supplier_id":"7","created_date":"26/12/2023"}
+{"product_id":"57","name":"SSD 1TB","category":"Periféricos","cost":"188","price":"244","supplier_id":"8","created_date":"2021-07-27"}
+{"product_id":"58","name":"SSD 1TB","category":"Accesorios","cost":"55","price":"71","supplier_id":"9","created_date":"09/03/2020"}
+{"product_id":"59","name":"Cable USB-C","category":"Almacenamiento","cost":"231","price":"300","supplier_id":"10","created_date":"17/02/2023"}
+{"product_id":"60","name":"   Laptop Pro   ","category":"Redes","cost":"45","price":"58","supplier_id":"11","created_date":"08/09/2021"}
+{"product_id":"61","name":"   Teclado   ","category":"Redes","cost":"326","price":"423","supplier_id":"12","created_date":"14/03/2023"}
+{"product_id":"62","name":"SSD 1TB","category":"Electrónica","cost":"28","price":"36","supplier_id":"13","created_date":"21/03/2022"}
+{"product_id":"63","name":"Webcam HD","cost":"98","price":"127","supplier_id":"14","created_date":"03/03/2023"}
+{"product_id":"64","name":"Cargador","category":"Periféricos","cost":"294","price":"382","supplier_id":"15","created_date":"18/05/2021"}
+{"product_id":"65","name":"Teclado","category":"Accesorios","cost":"23","price":"29","supplier_id":"16","created_date":"29/07/2021"}
+{"product_id":"66","name":"Teclado","cost":"88","price":"114","supplier_id":"17","created_date":"2020-12-24"}
+{"product_id":"67","name":"Webcam HD","category":"Accesorios","cost":"90","price":"117","supplier_id":"18","created_date":"18/06/2022"}
+{"product_id":"68","name":"SSD 1TB","cost":"118","price":"153","supplier_id":"19","created_date":"2023-11-18"}
+{"product_id":"69","name":"SSD 1TB","category":"Redes","cost":"380","price":"494","supplier_id":"20","created_date":"22/01/2022"}
+{"product_id":"70","name":"Teclado","category":"Electrónica","cost":"150","price":"195","supplier_id":"21","created_date":"2022-05-05"}
+{"product_id":"71","name":"   Laptop Pro   ","category":"Redes","cost":"403","price":"523","supplier_id":"22","created_date":"04/07/2023"}
+{"product_id":"72","name":"Teclado","category":"Accesorios","cost":"11","price":"14","supplier_id":"23","created_date":"09/04/2022"}
+{"product_id":"73","name":"   Monitor 4K   ","category":"Almacenamiento","cost":"435","price":"565","supplier_id":"24","created_date":"03/04/2023"}
+{"product_id":"74","name":"Monitor 4K","cost":"378","price":"491","supplier_id":"25","created_date":"14/03/2021"}
+{"product_id":"75","name":"Cargador","category":"Electrónica","cost":"396","price":"514","supplier_id":"26","created_date":"04/01/2023"}
+{"product_id":"76","name":"Auriculares","cost":"178","price":"231","supplier_id":"27","created_date":"07/01/2020"}
+{"product_id":"77","name":"Webcam HD","category":"Redes","cost":"159","price":"206","supplier_id":"28","created_date":"28/01/2023"}
+{"product_id":"78","name":"Laptop Pro","category":"Redes","cost":"259","price":"336","supplier_id":"29","created_date":"07/10/2022"}
+{"product_id":"79","name":"Monitor 4K","category":"Accesorios","cost":"426","price":"553","supplier_id":"30","created_date":"21/07/2021"}
+{"product_id":"80","name":"   Auriculares   ","cost":"214","price":"278","supplier_id":"31","created_date":"08/05/2023"}
+{"product_id":"81","name":"Laptop Pro","category":"Periféricos","cost":"112","price":"145","supplier_id":"32","created_date":"05/01/2020"}
+{"product_id":"82","name":"Teclado","category":"Electrónica","cost":"266","price":"345","supplier_id":"33","created_date":"19/03/2023"}
+{"product_id":"83","name":"   Cable USB-C   ","category":"Almacenamiento","cost":"28","price":"36","supplier_id":"34","created_date":"28/11/2022"}
+{"product_id":"84","name":"Monitor 4K","category":"Almacenamiento","cost":"116","price":"150","supplier_id":"35","created_date":"2021-06-25"}
+{"product_id":"85","name":"Laptop Pro","category":"Periféricos","cost":"411","price":"534","supplier_id":"36","created_date":"28/03/2020"}
+{"product_id":"86","name":"Webcam HD","category":"Electrónica","cost":"478","price":"621","supplier_id":"37","created_date":"14/02/2020"}
+{"product_id":"87","name":"SSD 1TB","category":"Almacenamiento","cost":"252","price":"327","supplier_id":"38","created_date":"26/02/2020"}
+{"product_id":"88","name":"Auriculares","category":"Periféricos","cost":"69","price":"89","supplier_id":"39","created_date":"27/08/2021"}
+{"product_id":"89","name":"Dock","category":"Periféricos","cost":"407","price":"529","supplier_id":"40","created_date":"24/11/2022"}
+{"product_id":"90","name":"Laptop Pro","category":"Accesorios","cost":"422","price":"548","supplier_id":"41","created_date":"2020-06-08"}
+{"product_id":"91","name":"Laptop Pro","cost":"489","price":"635","supplier_id":"42","created_date":"23/07/2021"}
+{"product_id":"92","name":"Cargador","cost":"15","price":"19","supplier_id":"43","created_date":"23/02/2021"}
+{"product_id":"93","name":"Cable USB-C","category":"Periféricos","cost":"497","price":"646","supplier_id":"44","created_date":"21/11/2020"}
+{"product_id":"94","name":"Teclado","category":"Electrónica","cost":"203","price":"263","supplier_id":"45","created_date":"02/02/2022"}
+{"product_id":"95","name":"Dock","cost":"166","price":"215","supplier_id":"46","created_date":"11/09/2020"}
+{"product_id":"96","name":"Monitor 4K","cost":"394","price":"512","supplier_id":"47","created_date":"30/12/2021"}
+{"product_id":"97","name":"Monitor 4K","category":"Accesorios","cost":"322","price":"418","supplier_id":"48","created_date":"21/02/2021"}
+{"product_id":"98","name":"Laptop Pro","category":"Periféricos","cost":"215","price":"279","supplier_id":"49","created_date":"18/11/2020"}
+{"product_id":"99","name":"Auriculares","cost":"235","price":"305","supplier_id":"50","created_date":"14/09/2021"}
+{"product_id":"100","name":"Monitor 4K","category":"Electrónica","cost":"375","price":"487","supplier_id":"1","created_date":"07/11/2021"}
+{"product_id":"101","name":"Laptop Pro","category":"Electrónica","cost":"362","price":"470","supplier_id":"2","created_date":"01/08/2022"}
+{"product_id":"102","name":"Teclado","category":"Almacenamiento","cost":"317","price":"412","supplier_id":"3","created_date":"2021-01-08"}
+{"product_id":"103","name":"Mouse","category":"Periféricos","cost":"162","price":"210","supplier_id":"4","created_date":"20/03/2020"}
+{"product_id":"104","name":"Dock","category":"Periféricos","cost":"277","price":"360","supplier_id":"5","created_date":"30/03/2021"}
+{"product_id":"105","name":"Laptop Pro","category":"Electrónica","cost":"216","price":"280","supplier_id":"6","created_date":"2020-09-13"}
+{"product_id":"106","name":"SSD 1TB","category":"Periféricos","cost":"439","price":"570","supplier_id":"7","created_date":"23/09/2023"}
+{"product_id":"107","name":"Auriculares","category":"Accesorios","cost":"239","price":"310","supplier_id":"8","created_date":"15/11/2022"}
+{"product_id":"108","name":"SSD 1TB","cost":"240","price":"312","supplier_id":"9","created_date":"31/08/2023"}
+{"product_id":"109","name":"Webcam HD","cost":"37","price":"48","supplier_id":"10","created_date":"11/01/2022"}
+{"product_id":"110","name":"Monitor 4K","category":"Redes","cost":"302","price":"392","supplier_id":"11","created_date":"2022-11-22"}
+{"product_id":"111","name":"Auriculares","category":"Almacenamiento","cost":"182","price":"236","supplier_id":"12","created_date":"14/09/2021"}
+{"product_id":"112","name":"Mouse","category":"Redes","cost":"470","price":"611","supplier_id":"13","created_date":"10/05/2023"}
+{"product_id":"113","name":"Teclado","category":"Electrónica","cost":"335","price":"435","supplier_id":"14","created_date":"08/10/2022"}
+{"product_id":"114","name":"Cable USB-C","category":"Accesorios","cost":"402","price":"522","supplier_id":"15","created_date":"2021-10-13"}
+{"product_id":"115","name":"SSD 1TB","category":"Electrónica","cost":"58","price":"75","supplier_id":"16","created_date":"06/01/2023"}
+{"product_id":"116","name":"Laptop Pro","category":"Electrónica","cost":"192","price":"249","supplier_id":"17","created_date":"2021-11-19"}
+{"product_id":"117","name":"Teclado","category":"Accesorios","cost":"222","price":"288","supplier_id":"18","created_date":"2021-11-06"}
+{"product_id":"118","name":"Teclado","category":"Almacenamiento","cost":"368","price":"478","supplier_id":"19","created_date":"2023-05-26"}
+{"product_id":"119","name":"   Auriculares   ","category":"Periféricos","cost":"373","price":"484","supplier_id":"20","created_date":"12/08/2021"}
+{"product_id":"120","name":"Cable USB-C","category":"Electrónica","cost":"392","price":"509","supplier_id":"21","created_date":"26/11/2022"}
+{"product_id":"121","name":"Cable USB-C","cost":"216","price":"280","supplier_id":"22","created_date":"2020-04-08"}
+{"product_id":"122","name":"Cargador","category":"Periféricos","cost":"188","price":"244","supplier_id":"23","created_date":"13/09/2021"}
+{"product_id":"123","name":"Webcam HD","category":"Almacenamiento","cost":"381","price":"495","supplier_id":"24","created_date":"2020-02-22"}
+{"product_id":"124","name":"   Cable USB-C   ","cost":"203","price":"263","supplier_id":"25","created_date":"28/10/2020"}
+{"product_id":"125","name":"Webcam HD","cost":"491","price":"638","supplier_id":"26","created_date":"26/06/2023"}
