@@ -27,6 +27,6 @@
 - % registros con problemas: ~20-25%
 
 🔧 PRÓXIMOS PASOS:
-1. Generar datos: spark-submit con DataGeneratorWithQualityIssues
-2. Analizar problemas con pandas/pyspark
-3. Limpiar y documentar el proceso de validación
+1. Generar datos: Ejecución del objeto DataGeneratorWithQualityIssues (ya sea mediante sbt run o spark-submit).
+2. Profiling y Análisis: Usar Spark (Scala) para identificar los problemas (contar nulos, detectar formatos de fecha erróneos, buscar duplicados).
+3. Limpieza (Silver Layer): Aplicar transformaciones para estandarizar formatos y eliminar basura.
