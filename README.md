@@ -33,7 +33,7 @@ Pipeline ETL completo que simula el flujo de datos de una empresa de e-commerce 
 
 ---
 
-## 🏛️ Arquitectura del pipeline
+## 🏛 Arquitectura del pipeline
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
