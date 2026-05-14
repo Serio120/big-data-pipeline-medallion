@@ -1,0 +1,11 @@
+product_id,name,category,total_revenue,total_margin,total_units,total_orders,avg_price,gold_layer
+314,Cargador,Almacenamiento,375971.0,158507.0,1394,137,270.23,gold
+584,Cargador,Redes,372295.0,-10370.0,1315,119,276.36,gold
+55,Cargador,Periféricos,370364.0,-97708.0,1182,117,302.21,gold
+490,SSD 1TB,Periféricos,369970.0,160241.0,1241,120,295.71,gold
+191,Cargador,Redes,361875.0,129536.0,1343,123,264.41,gold
+466,Cargador,Almacenamiento,361411.0,-85595.0,1218,121,292.49,gold
+859,Laptop Pro,Electrónica,360812.0,342767.0,1203,117,288.47,gold
+580,Cargador,Electrónica,360467.0,-195898.0,1279,128,273.56,gold
+728,Webcam HD,Almacenamiento,360090.0,-151200.0,1311,120,273.38,gold
+603,Laptop Pro,Sin Categoría,350587.0,-24821.0,1188,107,299.93,gold

@@ -1,1 +1,1 @@
-["com.example.AdvancedGenerator","com.example.DataGenerator","com.example.DataGeneratorWithQualityIssues","com.example.bronze.BronzeIngestion"]
+["com.example.AdvancedGenerator","com.example.DataGenerator","com.example.DataGeneratorWithQualityIssues","com.example.bronze.BronzeIngestion","com.example.gold.GoldKPIs","com.example.silver.SilverCleaning"]

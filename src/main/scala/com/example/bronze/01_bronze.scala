@@ -2,86 +2,99 @@ package com.example.bronze
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
-import io.delta.tables._
 
 object BronzeIngestion {
   def main(args: Array[String]): Unit = {
-    // 1. Configuración de Spark con Delta Lake
+
+   
     val spark = SparkSession.builder()
       .appName("ETL-Bronze-Ingestion")
       .master("local[*]")
-      .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
-      .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
       .getOrCreate()
 
-    println("🚀 Spark con Delta Lake inicializado correctamente.")
+    spark.sparkContext.setLogLevel("WARN")
 
-    /* 2. Definición de rutas (Cambiamos a rutas relativas que Spark entiende bien)
-    val inputPath = "data"
+    // ─────────────────────────────────────────────
+    // 2. Rutas relativas — funcionan en cualquier PC
+    //    Spark las resuelve desde el directorio donde
+    //    lanzas spark-submit (la raíz del proyecto)
+    // ─────────────────────────────────────────────
+    val inputPath  = "data"
     val outputPath = "delta/bronze"
-    */
-
-    // Sustituye las líneas de rutas por estas (Asegúrate de que la ruta sea idéntica a tu PC)
-    val inputPath = "E:/modulo-final-big-data/big-data-pipeline-medallion/data"
-    val outputPath = "E:/modulo-final-big-data/big-data-pipeline-medallion/delta/bronze"
     println(s"📥 Leyendo datos desde: $inputPath")
 
     try {
-      // --- INGESTA DE SALES (CSV) ---
-      // Leemos como String para no perder datos con errores de calidad
+
+      // ── SALES (CSV con problemas de calidad) ───────
+      // inferSchema=false → todo entra como String
+      // Así Bronze conserva "no aplica", negativos, nulos
       val salesRawDF = spark.read
-        .option("header", "true")
+        .option("header",      "true")
+        .option("inferSchema", "false")   // ← clave para Bronze
+        .option("mode",        "PERMISSIVE")
         .csv(s"$inputPath/sales")
 
       val salesBronze = salesRawDF
         .withColumn("ingestion_timestamp", current_timestamp())
-        .withColumn("source_file", lit("sales.csv"))
+        .withColumn("source_file",         lit("sales.csv"))
 
       salesBronze.write
         .mode("overwrite")
-        .format("delta")
-        .save(s"$outputPath/sales")
-      
-      println(s"✅ Tabla Bronze SALES creada. Registros: ${salesBronze.count()}")
+        .parquet(s"$outputPath/sales")
 
-      // --- INGESTA DE PRODUCTS (JSON) ---
+      val salesCount = salesBronze.count()
+      println(s"✅ Bronze SALES    → $salesCount filas | delta/bronze/sales")
+      salesBronze.printSchema()
+
+      // ── PRODUCTS (JSON con problemas de calidad) ───
       val productsRawDF = spark.read
+        .option("mode", "PERMISSIVE")
         .json(s"$inputPath/products")
 
       val productsBronze = productsRawDF
         .withColumn("ingestion_timestamp", current_timestamp())
-        .withColumn("source_file", lit("products.json"))
+        .withColumn("source_file",         lit("products.json"))
 
       productsBronze.write
         .mode("overwrite")
-        .format("delta")
-        .save(s"$outputPath/products")
+        .parquet(s"$outputPath/products")
 
-      println(s"✅ Tabla Bronze PRODUCTS creada. Registros: ${productsBronze.count()}")
+      val productsCount = productsBronze.count()
+      println(s"✅ Bronze PRODUCTS → $productsCount filas | delta/bronze/products")
+      productsBronze.printSchema()
 
-      // --- INGESTA DE CUSTOMERS (PARQUET) ---
+      // ── CUSTOMERS (Parquet — datos limpios) ────────
       val customersRawDF = spark.read
         .parquet(s"$inputPath/customers")
 
       val customersBronze = customersRawDF
         .withColumn("ingestion_timestamp", current_timestamp())
-        .withColumn("source_file", lit("customers.parquet"))
+        .withColumn("source_file",         lit("customers.parquet"))
 
       customersBronze.write
         .mode("overwrite")
-        .format("delta")
-        .save(s"$outputPath/customers")
+        .parquet(s"$outputPath/customers")
 
-      println(s"✅ Tabla Bronze CUSTOMERS creada. Registros: ${customersBronze.count()}")
+      val customersCount = customersBronze.count()
+      println(s"✅ Bronze CUSTOMERS → $customersCount filas | delta/bronze/customers")
+      customersBronze.printSchema()
 
-      println("\n✨ ¡Capa Bronze completada con éxito en la carpeta /delta!")
+      // ── Resumen ────────────────────────────────────
+      println("\n" + "=" * 50)
+      println("  📋 RESUMEN CAPA BRONZE")
+      println("=" * 50)
+      println(f"  bronze/sales      → $salesCount%,d filas")
+      println(f"  bronze/products   → $productsCount%,d filas")
+      println(f"  bronze/customers  → $customersCount%,d filas")
+      println("=" * 50)
+      println("✨ ¡Capa Bronze completada con éxito!")
 
     } catch {
-      case e: Exception => 
-        println(s"\n❌ ERROR DURANTE LA INGESTA: ${e.getMessage}")
-        println("Asegúrate de haber ejecutado primero el generador de datos (Opción 4).")
+      case e: Exception =>
+        println(s"\n❌ ERROR: ${e.getMessage}")
+        println("Asegúrate de haber ejecutado primero DataGeneratorWithQualityIssues.")
+        e.printStackTrace()
     } finally {
-      println(s"📂 Verificando carpeta de salida: ${new java.io.File(outputPath).getAbsolutePath}")
       spark.stop()
     }
   }
