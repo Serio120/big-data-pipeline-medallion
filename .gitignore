@@ -4,6 +4,10 @@ project/target/
 project/project/
 .bsp/
 .scala-build/
+.bloop/
+.cache/
+.metals/
+.history/
 
 # Metadatos del Editor (IntelliJ / VS Code)
 .idea/
