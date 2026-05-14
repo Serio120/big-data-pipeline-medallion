@@ -7,7 +7,7 @@
 ## 📋 Índice
 
 - [Descripción del proyecto](#-descripción-del-proyecto)
-- [Arquitectura del pipeline](#-arquitectura-del-proyecto)
+- [Arquitectura del pipeline](#-arquitectura-del-pipeline)
 - [Dominio de negocio](#-dominio-de-negocio)
 - [Fuentes de datos](#-fuentes-de-datos)
 - [Estructura del repositorio](#-estructura-del-repositorio)
@@ -33,7 +33,7 @@ Pipeline ETL completo que simula el flujo de datos de una empresa de e-commerce 
 
 ---
 
-## 🏛️ Arquitectura del proyecto
+## 🏛️ Arquitectura del pipeline
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
