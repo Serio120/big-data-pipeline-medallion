@@ -22,3 +22,4 @@ project/project/
 # Si no quieres subir los 1000s de archivos de datos a GitHub, descomenta estas:
 # data/
 # delta/
+.vscode/
