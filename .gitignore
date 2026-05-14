@@ -22,4 +22,10 @@ project/project/
 # Si no quieres subir los 1000s de archivos de datos a GitHub, descomenta estas:
 # data/
 # delta/
+# Si quieres subir los datos pero no los archivos de checkpoint, descomenta esta:
+# checkpoint/
+# Si quieres subir los archivos de checkpoint pero no los archivos de logs, descomenta esta:
+# logs/
+
+# dashboard/
 .vscode/
