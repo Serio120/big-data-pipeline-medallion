@@ -1,0 +1,20 @@
+# Scala y SBT
+target/
+project/target/
+project/project/
+.bsp/
+.scala-build/
+
+# Metadatos del Editor (IntelliJ / VS Code)
+.idea/
+*.iml
+.vscode/
+
+# Datos del sistema y temporales
+.DS_Store
+*.log
+
+# Tu carpeta de datos y delta (opcional)
+# Si no quieres subir los 1000s de archivos de datos a GitHub, descomenta estas:
+# data/
+# delta/
