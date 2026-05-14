@@ -7,7 +7,7 @@
 ## 📋 Índice
 
 - [Descripción del proyecto](#-descripción-del-proyecto)
-- [Arquitectura del pipeline](#-arquitectura-del-pipeline)
+- [Arquitectura del pipeline](#-arquitectura-del)
 - [Dominio de negocio](#-dominio-de-negocio)
 - [Fuentes de datos](#-fuentes-de-datos)
 - [Estructura del repositorio](#-estructura-del-repositorio)
