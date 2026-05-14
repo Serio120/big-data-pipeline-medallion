@@ -1,0 +1,32 @@
+📋 PROBLEMAS DE CALIDAD INTENCIONALES INTRODUCIDOS
+===================================================
+
+🔴 FUENTE: sales.csv (Órdenes)
+- ✗ 5% de valores NULOS en columna 'quantity'
+- ✗ 3% de precios inválidos:
+  * ~2% valores de texto: "no aplica", "abc", etc
+  * ~1% valores NEGATIVOS
+- ✗ 50% de fechas en formato INCONSISTENTE:
+  * 50% en formato DD/MM/YYYY (ej: 13/05/2023)
+  * 50% en formato ISO 8601 YYYY-MM-DD (ej: 2023-05-13)
+- ✗ 100 registros DUPLICADOS:
+  * Líneas 1000-1099: order_id=1001, customer_id=5555, product_id=333
+  * Mismo price="abc" en todos
+
+🟠 FUENTE: products.json (Productos)
+- ✗ 20% de productos SIN categoría (valores nulos)
+- ✗ 10% de nombres con ESPACIOS EXTRA al inicio/final
+- ✗ Fechas en formato DD/MM/YYYY (inconsistente con CSV)
+
+🟢 FUENTE: customers.parquet (Clientes)
+- ✓ Datos LIMPIOS (referencia de calidad)
+
+📊 ESTADÍSTICAS:
+- Total registros: ~101,000 (100k órdenes + 100 duplicados)
+- Tamaño esperado: ~10-15 MB
+- % registros con problemas: ~20-25%
+
+🔧 PRÓXIMOS PASOS:
+1. Generar datos: Ejecución del objeto DataGeneratorWithQualityIssues (ya sea mediante sbt run o spark-submit).
+2. Profiling y Análisis: Usar Spark (Scala) para identificar los problemas (contar nulos, detectar formatos de fecha erróneos, buscar duplicados).
+3. Limpieza (Silver Layer): Aplicar transformaciones para estandarizar formatos y eliminar basura.
