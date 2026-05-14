@@ -173,7 +173,7 @@ big-data-pipeline-medallion/
 
 ---
 
-## ⚙️ Requisitos
+## ⚙ Requisitos
 
 | Herramienta | Versión |
 |------------|---------|
@@ -260,7 +260,7 @@ spark-submit --class com.example.gold.GoldKPIs `
 
 ---
 
-## 🛠️ Stack tecnológico
+## 🛠 Stack tecnológico
 
 ![Scala](https://img.shields.io/badge/Scala-2.13.13-red?logo=scala)
 ![Spark](https://img.shields.io/badge/Apache%20Spark-4.1.1-orange?logo=apache-spark)
