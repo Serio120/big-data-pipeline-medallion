@@ -271,5 +271,5 @@ spark-submit --class com.example.gold.GoldKPIs `
 
 ---
 
-> Proyecto final del módulo de Big Data  
+> Project 
 > by [@Serio120](https://github.com/Serio120)
