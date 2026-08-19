@@ -1,131 +1,132 @@
-# 🏗️ Big Data Pipeline Medallion — TechZone
+# 🏗️ Big Data Medallion Pipeline — TechZone
 
-> Pipeline ETL end-to-end con **Scala + Apache Spark 4.1.1** sobre arquitectura **Medallion (Bronze → Silver → Gold)**, desde datos sintéticos con problemas de calidad hasta KPIs listos para Power BI.
-
----
-
-## 📋 Índice
-
-- [Descripción del proyecto](#-descripción-del-proyecto)
-- [Arquitectura del pipeline](#-arquitectura-del-pipeline)
-- [Dominio de negocio](#-dominio-de-negocio)
-- [Fuentes de datos](#-fuentes-de-datos)
-- [Estructura del repositorio](#-estructura-del-repositorio)
-- [Requisitos](#-requisitos)
-- [Instalación y ejecución](#-instalación-y-ejecución)
-- [Resultados](#-resultados)
-- [Stack tecnológico](#-stack-tecnológico)
+> End-to-end ETL pipeline built with **Scala + Apache Spark 4.1.1** using **Medallion Architecture (Bronze → Silver → Gold)**, from synthetic data with quality issues to business KPIs ready for Power BI.
 
 ---
 
-## 🎯 Descripción del proyecto
+## 📋 Table of Contents
 
-Pipeline ETL completo que simula el flujo de datos de una empresa de e-commerce (**TechZone**), procesando más de **100.000 transacciones** a través de tres capas de transformación y generando KPIs ejecutivos para toma de decisiones.
+- [Project Overview](#-project-overview)
+- [Pipeline Architecture](#-pipeline-architecture)
+- [Business Domain](#-business-domain)
+- [Data Sources](#-data-sources)
+- [Repository Structure](#-repository-structure)
+- [Requirements](#-requirements)
+- [Installation & Execution](#-installation--execution)
+- [Results](#-results)
+- [Technology Stack](#-technology-stack)
 
-| Métrica | Valor |
+---
+
+## 🎯 Project Overview
+
+A complete ETL pipeline that simulates the data flow of an e-commerce company (**TechZone**), processing more than **100,000 transactions** through three transformation layers and generating executive KPIs for business decision-making.
+
+| Metric | Value |
 |---------|-------|
-| 💰 Ingresos totales procesados | $264.9M |
-| 📦 Transacciones | 100.100 |
-| 👥 Clientes | 10.000 |
-| 🛍️ Productos | 1.000 |
-| 🌍 Países | 10 |
-| 📅 Periodo | 2023–2024 |
+| 💰 Total revenue processed | $264.9M |
+| 📦 Transactions | 100,100 |
+| 👥 Customers | 10,000 |
+| 🛍️ Products | 1,000 |
+| 🌍 Countries | 10 |
+| 📅 Period | 2023–2024 |
 
 ---
 
-## 🏛 Arquitectura del pipeline
+## 🏛 Pipeline Architecture
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
-│                     FUENTES DE DATOS                        │
+│                       DATA SOURCES                          │
 │   sales.csv (CSV)  │  products.json (JSON)  │  customers    │
-│   100.100 filas    │  1.000 filas           │  (Parquet)    │
-│   CON problemas    │  CON problemas         │  10.000 filas │
+│   100,100 rows     │  1,000 rows            │  (Parquet)    │
+│   WITH issues      │  WITH issues           │  10,000 rows  │
 └────────┬───────────┴──────────┬─────────────┴──────┬────────┘
          │                     │                     │
          ▼                     ▼                     ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  🥉 CAPA BRONZE  —  Ingesta Raw (01_bronze.scala)           │
-│  • Lee sin transformar  • inferSchema=false en CSV          │
-│  • Añade: ingestion_timestamp, source_file                  │
-│  • Formato: Parquet  │  Ruta: delta/bronze/                 │
+│  🥉 BRONZE LAYER — Raw Ingestion (01_bronze.scala)          │
+│  • Reads raw data without transformation                     │
+│  • inferSchema=false for CSV                                 │
+│  • Adds: ingestion_timestamp, source_file                    │
+│  • Format: Parquet  │  Path: delta/bronze/                   │
 └─────────────────────────────┬───────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  🥈 CAPA SILVER  —  Limpieza (02_silver.scala)              │
-│  • 99 duplicados eliminados                                 │
-│  • 3.853 precios inválidos filtrados                        │
-│  • 4.753 nulos en quantity imputados (→ 1)                  │
-│  • 200 categorías nulas imputadas (→ "Sin Categoría")       │
-│  • Fechas normalizadas a YYYY-MM-DD                         │
-│  • Cast de tipos correctos                                  │
-│  • Formato: Parquet  │  Ruta: delta/silver/                 │
+│  🥈 SILVER LAYER — Data Cleaning (02_silver.scala)          │
+│  • 99 duplicates removed                                     │
+│  • 3,853 invalid prices filtered                             │
+│  • 4,753 null quantities imputed (→ 1)                       │
+│  • 200 null categories imputed (→ "Uncategorized")           │
+│  • Dates normalized to YYYY-MM-DD                            │
+│  • Correct data types applied                                │
+│  • Format: Parquet  │  Path: delta/silver/                   │
 └─────────────────────────────┬───────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  🥇 CAPA GOLD  —  KPIs (03_gold.scala)                      │
-│  • top_products   → Q1: Top 10 productos por ingreso        │
-│  • category_kpis  → Q2: Margen bruto por categoría          │
-│  • monthly_kpis   → Q3: Evolución de ventas mes a mes       │
-│  • country_kpis   → Q4: Ingresos y clientes por país        │
-│  • Formato: Parquet + CSV  │  Ruta: delta/gold/ + dashboard/│
+│  🥇 GOLD LAYER — KPIs (03_gold.scala)                       │
+│  • top_products   → Q1: Top 10 products by revenue          │
+│  • category_kpis  → Q2: Gross margin by category             │
+│  • monthly_kpis   → Q3: Monthly sales evolution              │
+│  • country_kpis   → Q4: Revenue and customers by country     │
+│  • Format: Parquet + CSV  │  Path: delta/gold/ + dashboard/  │
 └─────────────────────────────┬───────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  📊 POWER BI DASHBOARD                                      │
-│  4 CSVs → 4 visualizaciones → Dashboard ejecutivo TechZone │
+│  4 CSVs → 4 visualizations → Executive TechZone Dashboard  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🏢 Dominio de negocio
+## 🏢 Business Domain
 
-**TechZone** es un e-commerce de electrónica que vende en 10 países de habla hispana y América del Norte. Tiene 1.000 productos activos, 10.000 clientes registrados y procesa ~100.000 transacciones anuales.
+**TechZone** is an electronics e-commerce company operating across 10 Spanish-speaking and North American countries. It has 1,000 active products, 10,000 registered customers, and processes approximately 100,000 transactions per year.
 
-**Problema:** No tienen visibilidad sobre qué productos y categorías generan más margen, en qué países concentrar inversión, ni cómo evoluciona la demanda a lo largo del año.
+**Business problem:** The company lacks visibility into which products and categories generate the highest margins, where investment should be focused, and how demand evolves throughout the year.
 
-### ❓ Preguntas de negocio respondidas
+### ❓ Business Questions Answered
 
-| # | Pregunta | Tabla Gold |
+| # | Question | Gold Table |
 |---|----------|------------|
-| Q1 | ¿Cuáles son los 10 productos con mayor ingreso total? | `top_products` |
-| Q2 | ¿Cuál es el margen bruto por categoría de producto? | `category_kpis` |
-| Q3 | ¿Cómo evolucionan las ventas mes a mes? ¿Hay estacionalidad? | `monthly_kpis` |
-| Q4 | ¿Qué países generan más ingresos y clientes activos? | `country_kpis` |
-| Q5 | ¿Cuál es el ticket medio por país y categoría? | `category_kpis` + `country_kpis` |
+| Q1 | Which 10 products generate the highest total revenue? | `top_products` |
+| Q2 | What is the gross margin by product category? | `category_kpis` |
+| Q3 | How do sales evolve month by month? Is there seasonality? | `monthly_kpis` |
+| Q4 | Which countries generate the most revenue and active customers? | `country_kpis` |
+| Q5 | What is the average order value by country and category? | `category_kpis` + `country_kpis` |
 
 ---
 
-## 📊 Fuentes de datos
+## 📊 Data Sources
 
-Datos generados sintéticamente con **Scala/Spark** mediante `DataGeneratorWithQualityIssues.scala`.
+Synthetic data is generated with **Scala/Spark** using `DataGeneratorWithQualityIssues.scala`.
 
-| Fuente | Formato | Filas | Problemas introducidos |
-|--------|---------|-------|----------------------|
-| `data/sales` | CSV | 100.100 | 5% nulos en `quantity`, 3% precios inválidos ("no aplica", negativos), 50% fechas en DD/MM/YYYY, 100 duplicados |
-| `data/products` | JSON | 1.000 | 20% sin categoría, 10% espacios extra en nombre, 70% fechas en DD/MM/YYYY |
-| `data/customers` | Parquet | 10.000 | Datos limpios |
+| Source | Format | Rows | Injected Issues |
+|--------|---------|-------|----------------|
+| `data/sales` | CSV | 100,100 | 5% null `quantity` values, 3% invalid prices ("not applicable", negative values), 50% dates in DD/MM/YYYY, 100 duplicates |
+| `data/products` | JSON | 1,000 | 20% missing categories, 10% extra spaces in names, 70% dates in DD/MM/YYYY |
+| `data/customers` | Parquet | 10,000 | Clean data |
 
-### 🔧 Decisiones de limpieza (Silver)
+### 🔧 Silver Layer Cleaning Decisions
 
-| Problema | Estrategia | Justificación |
-|----------|-----------|---------------|
-| 100 duplicados en sales | `dropDuplicates` | Registros idénticos sin valor analítico |
-| Precios "no aplica" o negativos | Eliminar fila | No se puede imputar un precio de venta |
-| Nulos en `quantity` (5%) | Imputar con `1` | Venta mínima posible, conserva el registro |
-| Fechas DD/MM/YYYY | Normalizar a YYYY-MM-DD | Estándar ISO para análisis temporal |
-| Espacios extra en nombres | `trim()` | Evita duplicados lógicos en agrupaciones |
-| Categorías nulas (20%) | Imputar "Sin Categoría" | Conserva el producto para análisis de precio/coste |
+| Issue | Strategy | Rationale |
+|----------|-----------|-----------|
+| 100 duplicate sales records | `dropDuplicates` | Identical records provide no additional analytical value |
+| "Not applicable" or negative prices | Remove row | A valid selling price cannot be reliably imputed |
+| Null `quantity` values (5%) | Impute with `1` | Represents the minimum possible sale quantity while preserving the record |
+| DD/MM/YYYY dates | Normalize to YYYY-MM-DD | ISO standard for time-based analysis |
+| Extra spaces in names | `trim()` | Prevents logical duplicates during aggregations |
+| Null categories (20%) | Impute "Uncategorized" | Preserves the product for price/cost analysis |
 
 ---
 
-## 📁 Estructura del repositorio
+## 📁 Repository Structure
 
-```
+```text
 big-data-pipeline-medallion/
 │
 ├── README.md
@@ -133,23 +134,23 @@ big-data-pipeline-medallion/
 │
 ├── src/main/scala/com/example/
 │   ├── generators/
-│   │   ├── DataGenerator.scala        ← Genera datos limpios
-│   │   ├── DataGeneratorWithQualityIssues.scala  ← Datos con problemas
-│   │   └── AdvancedGenerator.scala    ← Consultas de análisis
+│   │   ├── DataGenerator.scala        ← Generates clean data
+│   │   ├── DataGeneratorWithQualityIssues.scala  ← Generates data with issues
+│   │   └── AdvancedGenerator.scala    ← Analysis queries
 │   ├── bronze/
-│   │   └── 01_bronze.scala            ← Ingesta raw → delta/bronze/
+│   │   └── 01_bronze.scala            ← Raw ingestion → delta/bronze/
 │   ├── silver/
-│   │   └── 02_silver.scala            ← Limpieza → delta/silver/
+│   │   └── 02_silver.scala             ← Cleaning → delta/silver/
 │   ├── gold/
 │   │   └── 03_gold.scala              ← KPIs → delta/gold/ + dashboard/
 │   └── utils/
 │
-├── data/                              ← Fuentes generadas (no versionadas)
+├── data/                              ← Generated sources (not versioned)
 │   ├── sales/                         (CSV)
 │   ├── products/                      (JSON)
 │   └── customers/                     (Parquet)
 │
-├── delta/                             ← Capas del pipeline (no versionadas)
+├── delta/                             ← Pipeline layers (not versioned)
 │   ├── bronze/
 │   │   ├── sales/
 │   │   ├── products/
@@ -164,7 +165,7 @@ big-data-pipeline-medallion/
 │       ├── monthly_kpis/
 │       └── country_kpis/
 │
-└── dashboard/                         ← CSVs para Power BI
+└── dashboard/                         ← CSV files for Power BI
     ├── top_products/
     ├── category_kpis/
     ├── monthly_kpis/
@@ -173,53 +174,53 @@ big-data-pipeline-medallion/
 
 ---
 
-## ⚙ Requisitos
+## ⚙ Requirements
 
-| Herramienta | Versión |
+| Tool | Version |
 |------------|---------|
 | Java | 17+ |
 | Scala | 2.13.13 |
 | Apache Spark | 4.1.1 |
 | sbt | 1.7+ |
 
-> ⚠️ **Nota sobre Delta Lake:** Delta Lake no tiene soporte oficial para Spark 4.x todavía. Este proyecto usa **Parquet** como formato de almacenamiento para todas las capas, manteniendo la misma arquitectura medallion.
+> ⚠️ **Delta Lake note:** Delta Lake does not yet officially support Spark 4.x. This project therefore uses **Parquet** as the storage format for all layers while preserving the same Medallion Architecture.
 
 ---
 
-## 🚀 Instalación y ejecución
+## 🚀 Installation & Execution
 
-### 1. Clonar el repositorio
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Serio120/big-data-pipeline-medallion.git
 cd big-data-pipeline-medallion
 ```
 
-### 2. Compilar
+### 2. Build the project
 
 ```bash
 sbt clean assembly
 ```
 
-### 3. Ejecutar el pipeline completo (en orden)
+### 3. Run the complete pipeline in order
 
 ```powershell
-# Paso 1 — Generar datos con problemas de calidad
+# Step 1 — Generate data with quality issues
 spark-submit --class com.example.generators.DataGeneratorWithQualityIssues `
   --master local[*] `
   target/scala-2.13/big-data-pipeline-medallion-assembly-1.0.0.jar
 
-# Paso 2 — Capa Bronze (ingesta raw)
+# Step 2 — Bronze layer (raw ingestion)
 spark-submit --class com.example.bronze.BronzeIngestion `
   --master local[*] `
   target/scala-2.13/big-data-pipeline-medallion-assembly-1.0.0.jar
 
-# Paso 3 — Capa Silver (limpieza)
+# Step 3 — Silver layer (data cleaning)
 spark-submit --class com.example.silver.SilverCleaning `
   --master local[*] `
   target/scala-2.13/big-data-pipeline-medallion-assembly-1.0.0.jar
 
-# Paso 4 — Capa Gold (KPIs)
+# Step 4 — Gold layer (KPIs)
 spark-submit --class com.example.gold.GoldKPIs `
   --master local[*] `
   target/scala-2.13/big-data-pipeline-medallion-assembly-1.0.0.jar
@@ -227,40 +228,40 @@ spark-submit --class com.example.gold.GoldKPIs `
 
 ---
 
-## 📈 Resultados
+## 📈 Results
 
-### KPIs globales TechZone (2023–2024)
+### TechZone Global KPIs (2023–2024)
 
-| KPI | Valor |
+| KPI | Value |
 |-----|-------|
-| Ingresos totales | $264.9M |
-| Margen bruto total | $16.9M |
-| Margen bruto % | 6.4% |
-| Ticket medio | ~$2.760 |
+| Total revenue | $264.9M |
+| Total gross margin | $16.9M |
+| Gross margin % | 6.4% |
+| Average order value | ~$2,760 |
 
-### Margen por categoría
+### Margin by Category
 
-| Categoría | Ingresos | Margen % |
+| Category | Revenue | Margin % |
 |-----------|----------|----------|
-| Sin Categoría | $52.5M | 12.86% |
-| Accesorios | $45.0M | 7.62% |
-| Redes | $37.5M | 6.21% |
-| Almacenamiento | $42.3M | 5.25% |
-| Periféricos | $40.0M | 5.03% |
-| Electrónica | $47.7M | 0.36% |
+| Uncategorized | $52.5M | 12.86% |
+| Accessories | $45.0M | 7.62% |
+| Networking | $37.5M | 6.21% |
+| Storage | $42.3M | 5.25% |
+| Peripherals | $40.0M | 5.03% |
+| Electronics | $47.7M | 0.36% |
 
-### Top países por ingreso
+### Top Countries by Revenue
 
-| País | Ingresos | Margen % |
+| Country | Revenue | Margin % |
 |------|----------|----------|
-| 🇵🇪 Perú | $27.9M | 5.01% |
+| 🇵🇪 Peru | $27.9M | 5.01% |
 | 🇦🇷 Argentina | $27.6M | 7.04% |
 | 🇨🇴 Colombia | $27.6M | 5.74% |
-| 🇨🇱 Chile | $25.8M | 7.80% ⬆️ mejor margen |
+| 🇨🇱 Chile | $25.8M | 7.80% ⬆️ highest margin |
 
 ---
 
-## 🛠 Stack tecnológico
+## 🛠 Technology Stack
 
 ![Scala](https://img.shields.io/badge/Scala-2.13.13-red?logo=scala)
 ![Spark](https://img.shields.io/badge/Apache%20Spark-4.1.1-orange?logo=apache-spark)
@@ -271,5 +272,4 @@ spark-submit --class com.example.gold.GoldKPIs `
 
 ---
 
-> Project 
-> by [@Serio120](https://github.com/Serio120)
+> Project by [@Serio120](https://github.com/Serio120)
